@@ -1,117 +1,178 @@
 @extends('layouts.main')
+
 @section('title', 'Dashboard')
+
 @section('content')
-          <div class="dashboard-container container-fluid py-4">
 
-        <!-- Título -->
-        <div class="mb-5">
-            <h1 class="dashboard-title">
-                Bem-vindo, {{ Auth::user()->name }}!
-            </h1>
+<div class="dashboard-container container-fluid py-4">
 
-            <p class="dashboard-subtitle">
-                Gerencie seus agendamentos e reserve novas quadras
-            </p>
+    <!-- Cabeçalho -->
+    <div class="mb-5">
+        <h1 class="dashboard-title">
+            Bem-vindo, {{ Auth::user()->name }}!
+        </h1>
+
+        <p class="dashboard-subtitle">
+            Gerencie seus agendamentos e reserve novas quadras
+        </p>
+    </div>
+
+    <!-- Cards Resumo -->
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-4">
+            <div class="dashboard-card">
+
+                <div>
+                    <h5>Próximos</h5>
+                    <h2>0</h2>
+                </div>
+
+                <i class="bi bi-calendar-check dashboard-icon text-secondary"></i>
+
+            </div>
         </div>
 
-        <!-- Cards -->
-        <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="dashboard-card">
 
-            <div class="col-md-4">
-                <div class="dashboard-card">
-                    <div>
-                        <h5>Próximos</h5>
-                        <h2>0</h2>
-                    </div>
-
-                    <i class="bi bi-calendar-check dashboard-icon text-secondary"></i>
+                <div>
+                    <h5>Pendentes</h5>
+                    <h2>1</h2>
                 </div>
+
+                <i class="bi bi-three-dots dashboard-icon text-warning"></i>
+
             </div>
+        </div>
 
-            <div class="col-md-4">
-                <div class="dashboard-card">
-                    <div>
-                        <h5>Pendentes</h5>
-                        <h2>1</h2>
-                    </div>
+        <div class="col-md-4">
+            <div class="dashboard-card">
 
-                    <i class="bi bi-three-dots dashboard-icon text-warning"></i>
+                <div>
+                    <h5>Confirmados</h5>
+                    <h2>1</h2>
                 </div>
+
+                <i class="bi bi-check-circle dashboard-icon text-success"></i>
+
             </div>
+        </div>
 
-            <div class="col-md-4">
-                <div class="dashboard-card">
-                    <div>
-                        <h5>Confirmados</h5>
-                        <h2>1</h2>
-                    </div>
+    </div>
 
-                    <i class="bi bi-check-circle dashboard-icon text-success"></i>
-                </div>
+    <!-- Conteúdo Principal -->
+    <div class="row g-4">
+
+        <!-- Agendamentos -->
+        <div class="col-lg-8">
+
+            <div class="dashboard-box">
+
+                <h2 class="section-title">
+                    Próximos Agendamentos
+                </h2>
+
+                <p class="text-muted">
+                    Nenhum agendamento próximo
+                </p>
+
+                <button class="btn dashboard-btn-outline w-100 mt-4">
+                    VER TODOS OS AGENDAMENTOS
+                </button>
+
             </div>
 
         </div>
 
-        <!-- Conteúdo -->
-        <div class="row g-4">
+        <!-- Lateral -->
+        <div class="col-lg-4">
 
-            <!-- Agendamentos -->
-            <div class="col-lg-8">
+            <!-- Ações rápidas -->
+            <div class="dashboard-box mb-4">
 
-                <div class="dashboard-box">
+                <h2 class="section-title">
+                    Ações Rápidas
+                </h2>
 
-                    <h2 class="section-title">
-                        Próximos Agendamentos
-                    </h2>
+                <div class="d-grid gap-3 mt-4">
 
-                    <p class="text-muted">
-                        Nenhum agendamento próximo
+                    <a href="#" class="btn dashboard-btn-primary">
+                        <i class="bi bi-calendar-plus me-2"></i>
+                        NOVA RESERVA
+                    </a>
+
+                    <a href="#" class="btn dashboard-btn-outline">
+                        <i class="bi bi-clock-history me-2"></i>
+                        HISTÓRICO
+                    </a>
+
+                    <a href="{{ route('profile.show') }}"
+                       class="btn dashboard-btn-outline">
+                        <i class="bi bi-person-fill me-2"></i>
+                        MEU PERFIL
+                    </a>
+
+                </div>
+
+            </div>
+
+            @if(!auth()->user()->arenas()->exists())
+
+                <!-- Cliente -->
+                <div class="arena-owner-card">
+
+                    <h3>
+                        <i class="bi bi-trophy-fill me-2"></i>
+                        Tem uma Arena?
+                    </h3>
+
+                    <p>
+                        Cadastre sua arena e gerencie quadras,
+                        agendamentos e funcionários como proprietário.
                     </p>
 
-                    <button class="btn dashboard-btn-outline w-100 mt-4">
-                        VER TODOS OS AGENDAMENTOS
-                    </button>
+                    <a href="{{ route('arenas.create') }}"
+                       class="btn btn-warning w-100">
+
+                        <i class="bi bi-plus-circle me-2"></i>
+                        CADASTRAR MINHA ARENA
+
+                    </a>
 
                 </div>
 
-            </div>
+            @else
 
-            <!-- Ações -->
-            <div class="col-lg-4">
+                <!-- Proprietário -->
+                <div class="arena-owner-card">
 
-                <div class="dashboard-box">
+                    <h3>
+                        <i class="bi bi-building-fill me-2"></i>
+                        Área do Proprietário
+                    </h3>
 
-                    <h2 class="section-title">
-                        Ações Rápidas
-                    </h2>
+                    <p>
+                        Você possui arenas cadastradas.
+                        Gerencie quadras, reservas e funcionários.
+                    </p>
 
-                    <div class="d-grid gap-3 mt-4">
+                    <a href="{{ route('arenas.index') }}"
+                       class="btn btn-warning w-100">
 
-                        <button class="btn dashboard-btn-primary">
-                            <i class="bi bi-search me-2"></i>
-                            NOVA RESERVA
-                        </button>
+                        <i class="bi bi-gear-fill me-2"></i>
+                        ACESSAR MINHAS ARENAS
 
-                        <button class="btn dashboard-btn-outline">
-                            <i class="bi bi-clock-history me-2"></i>
-                            HISTÓRICO
-                        </button>
-                        <a href="{{ route('profile.show') }}" class="btn dashboard-btn-outline">
-                            <i class="bi bi-clock-history me-2"></i>
-                            MEU PERFIL
-                        </a>
-                        <a href="{{ route('arenas.create') }}" class="btn dashboard-btn-outline">
-                            <i class="bi bi-plus-circle me-2"></i>
-                            NOVA ARENA
-                        </a>
-
-                    </div>
+                    </a>
 
                 </div>
 
-            </div>
+            @endif
 
         </div>
 
     </div>
+
+</div>
+
 @endsection

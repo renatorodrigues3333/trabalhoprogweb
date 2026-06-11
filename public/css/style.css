@@ -8,7 +8,7 @@
 }
 
 .logo{
-    color: rgb(237, 237, 237) !important;
+    color: rgb(242, 242, 242) !important;
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 1px;
@@ -71,7 +71,7 @@ body{
 /* CARDS */
 
 .dashboard-card{
-    background: rgb(255, 255, 255);
+    background: white;
     border-radius: 18px;
     padding: 30px;
     display: flex;
@@ -217,4 +217,73 @@ body{
 .auth-btn:hover{
     background: #03315f;
     color: white;
+}
+.arena-owner-card{
+    background: linear-gradient(135deg,#001f3f,#163b63);
+    color:#fff;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.arena-owner-card h3{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.arena-owner-card p{
+    opacity:.9;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+.arena-owner-card .btn-warning{
+    font-weight:700;
+    padding:12px;
+    border-radius:10px;
+}
+
+.dashboard-btn-primary{
+    background:#001f3f;
+    color:white;
+    border:none;
+}
+
+.dashboard-btn-primary:hover{
+    background:#003366;
+    color:white;
+}
+
+.dashboard-btn-outline{
+    border:1px solid #cfd4da;
+    background:white;
+}
+
+.dashboard-btn-outline:hover{
+    background:#f8f9fa;
+}
+
+.dashboard-icon{
+    font-size:3rem;
+}
+
+.dashboard-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.dashboard-box{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.section-title{
+    font-weight:700;
 }
