@@ -34,16 +34,14 @@
 </div>
 <div class="container py-5">
 
-    <h2 class="fw-bold mb-4">
+    <h2 class="fw-bold mb-4 text-center">
         Arenas Disponíveis
     </h2>
 
     <div class="row">
-
-        @foreach($arenas as $arena)
+        @forelse($arenas as $arena)
 
             <div class="col-md-4 mb-4">
-
                 <div class="card shadow-sm h-100">
 
                     <div class="card-body">
@@ -63,19 +61,22 @@
                     <div class="card-footer bg-white">
 
                         <a href="{{ route('arenas.show', $arena->id) }}"
-                           class="btn btn-primary w-100">
-
+                        class="btn btn-primary w-100">
                             Ver Arena
-
                         </a>
 
                     </div>
 
                 </div>
-
             </div>
 
-        @endforeach
+        @empty
+
+            <div class="col-12 text-center py-5">
+                <h4>Nenhuma arena cadastrada ainda</h4>
+            </div>
+
+        @endforelse
 
     </div>
 

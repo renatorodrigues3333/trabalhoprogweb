@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArenaController;
 use App\Http\Controllers\QuadraController;
+use App\Models\Arena;
 
 Route::get('/', function () {
-    return view('welcome');
+    $arenas = Arena::all();
+    return view('welcome', compact('arenas'));
 });
 
 Route::middleware([
@@ -19,20 +21,19 @@ Route::middleware([
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-
     Route::get('/admin', function () {
         return view('admin.dashboard');
     });
 });
 
 Route::middleware(['auth', 'proprietario'])->group(function () {
-
     Route::get('/proprietario', function () {
         return view('proprietario.dashboard');
     });
 });
-Route::middleware(['auth'])->group(function () {
 
+Route::middleware(['auth'])->group(function () {
     Route::resource('arenas', ArenaController::class);
     Route::resource('quadras', QuadraController::class);
 });
+
