@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Arena;
 
 class ArenaController extends Controller
 {
@@ -42,24 +43,26 @@ class ArenaController extends Controller
         //
     }
 
-    public function edit(string $id)
+    public function edit(Arena $arena)
     {
-        //
+        return view('arenas.edit', compact('arena'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Arena $arena)
     {
-    
+        $arena->update($request->all());
+        return redirect()->route('arenas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Arena $arena)
     {
-        //
+        $arena->delete();
+        return redirect()->route('arenas.index');
     }
 }

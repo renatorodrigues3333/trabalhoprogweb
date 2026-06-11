@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quadras;
 use Illuminate\Http\Request;
 
 class QuadraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    //CLUD
+
     public function index()
     {
-        //
+        $quadras = Quadra::with('arena')->get();
+        return view('quadras.index', compact('quadras'));
     }
 
     /**
@@ -19,7 +20,8 @@ class QuadraController extends Controller
      */
     public function create()
     {
-        //
+        $arenas = auth()->user()->arenas;
+        return view('quadras.create', compact('arenas'));
     }
 
     /**
@@ -27,7 +29,14 @@ class QuadraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Quadras::create([
+            'arena_id' => $request->arena_id,
+            'nome' => $request->nome,
+            'descricao' => $request->descricao,
+            'preco' => $request->preco,
+            'disponibilidade' => $request->disponibilidade,
+        ]);
+        return redirect()->route('quadras.index');
     }
 
     /**
@@ -35,7 +44,7 @@ class QuadraController extends Controller
      */
     public function show(string $id)
     {
-        //
+      
     }
 
     /**

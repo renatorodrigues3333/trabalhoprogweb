@@ -32,13 +32,52 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="container mt-5">
-  <h2 class="text-center">Arenas disponiveis</h2>
-</div>
-<div>
-  <h1 class="text-center">Arena Sport Beach</h1>
-</div>
-<div>
-  <h1 class="text-center">Arena do mauro</h1>
+<div class="container py-5">
+
+    <h2 class="fw-bold mb-4">
+        Arenas Disponíveis
+    </h2>
+
+    <div class="row">
+
+        @foreach($arenas as $arena)
+
+            <div class="col-md-4 mb-4">
+
+                <div class="card shadow-sm h-100">
+
+                    <div class="card-body">
+
+                        <h4>{{ $arena->nome }}</h4>
+
+                        <p class="text-muted">
+                            {{ $arena->endereco }}
+                        </p>
+
+                        <p>
+                            {{ $arena->descricao }}
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer bg-white">
+
+                        <a href="{{ route('arenas.show', $arena->id) }}"
+                           class="btn btn-primary w-100">
+
+                            Ver Arena
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        @endforeach
+
+    </div>
+
 </div>
 @endsection

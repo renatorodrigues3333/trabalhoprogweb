@@ -12,6 +12,11 @@ class Arena extends Model
         'descricao',
     ];
 
+    public function quadras()
+    {
+        return $this->hasMany(Quadra::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
