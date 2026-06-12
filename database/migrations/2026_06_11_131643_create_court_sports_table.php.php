@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('court_sports', function (Blueprint $table) {
+
+            $table->id();
+
+            $table->foreignId('court_id')
+                ->constrained('courts')
+                ->cascadeOnDelete();
+
+            $table->enum('sport', [
+                'beach_tennis',
+                'beach_volleyball',
+                'indoor_volleyball',
+                'five_a_side_football',
+                'futsal',
+                'tennis'
+            ]);
+
+            $table->timestamp('created_at')
+                ->useCurrent();
+
+            $table->unique([
+                'court_id',
+                'sport'
+            ], 'uq_court_sport');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('court_sports');
+    }
+};
