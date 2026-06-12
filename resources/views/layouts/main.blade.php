@@ -49,6 +49,12 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link" href="/registerArenaProprietario">
+                                    CADASTRAR ARENA
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="btn btn-register" href="/register">
                                     CADASTRAR
                                 </a>
