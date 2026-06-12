@@ -5,11 +5,18 @@ use App\Http\Controllers\ArenaController;
 use App\Http\Controllers\QuadraController;
 use App\Models\Arena;
 use App\Http\Controllers\OwnersController;
+use App\Http\Controllers\RegisterArenaOwnerController;
 
 Route::get('/', function () {
     $arenas = Arena::all();
     return view('welcome', compact('arenas'));
 });
+
+Route::get('/registerArenaOwners', [RegisterArenaOwnerController::class, 'create'])
+    ->name('register.arena.owners');
+
+Route::post('/registerArenaOwners', [RegisterArenaOwnerController::class, 'store'])
+    ->name('register.arena.owners.store');
 
 Route::middleware([
     'auth:sanctum',

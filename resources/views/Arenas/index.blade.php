@@ -55,9 +55,9 @@
 
                 <div class="border rounded p-3 mb-3">
 
-                    <h5>{{ $arena->nome }}</h5>
+                    <h5>{{ $arena->name }}</h5>
 
-                    <p>{{ $arena->endereco }}</p>
+                    <p>{{ $arena->address }}</p>
 
                     <a href="{{ route('arenas.edit', $arena->id) }}" class="btn btn-outline-primary">
                         Gerenciar

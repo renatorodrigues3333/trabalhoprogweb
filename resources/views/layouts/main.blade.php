@@ -49,7 +49,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/registerArenaProprietario">
+                                <a class="nav-link" href="{{ route('register.arena.owners') }}">
                                     CADASTRAR ARENA
                                 </a>
                             </li>

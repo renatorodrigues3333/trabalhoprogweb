@@ -6,7 +6,7 @@
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register.arena.owners.store') }}">
             @csrf
 
             <div>
@@ -17,6 +17,16 @@
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="company_name" value="{{ __('Nome da Empresa') }}" />
+                <x-input id="company_name" class="block mt-1 w-full" type="text" name="company_name" :value="old('company_name')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="tax_id" value="{{ __('CPF / CNPJ') }}" />
+                <x-input id="tax_id" class="block mt-1 w-full" type="text" name="tax_id" :value="old('tax_id')" required />
             </div>
 
             <div class="mt-4">
