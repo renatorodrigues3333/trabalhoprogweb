@@ -31,13 +31,25 @@ class ArenaController extends Controller
     {
         $owner = Owner::where('user_id', auth()->id())->first();
 
+        if (! $owner) {
+            abort(403, 'Apenas proprietários podem cadastrar arenas.');
+        }
+
+        $validated = $request->validate([
+            'nome' => ['required', 'string', 'max:120'],
+            'endereco' => ['required', 'string', 'max:255'],
+            'descricao' => ['nullable', 'string'],
+            'telefone' => ['nullable', 'string', 'max:20'],
+            'email_contato' => ['nullable', 'email', 'max:150'],
+        ]);
+
         Arena::create([
             'owner_id' => $owner->id,
-            'name' => $request->nome,
-            'address' => $request->endereco,
-            'description' => $request->descricao,
-            'phone' => $request->telefone,
-            'contact_email' => $request->email_contato,
+            'name' => $validated['nome'],
+            'address' => $validated['endereco'],
+            'description' => $validated['descricao'] ?? null,
+            'phone' => $validated['telefone'] ?? null,
+            'contact_email' => $validated['email_contato'] ?? null,
         ]);
 
         return redirect()->route('owners.dashboard');

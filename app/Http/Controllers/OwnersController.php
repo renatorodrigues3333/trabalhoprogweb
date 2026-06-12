@@ -28,10 +28,15 @@ class OwnersController extends Controller
      */
     public function store(Request $request)
     {
-        $owner = Owner::create([
+        $validated = $request->validate([
+            'company_name' => ['required', 'string', 'max:150'],
+            'tax_id' => ['required', 'string', 'max:20', 'unique:owners,tax_id'],
+        ]);
+
+        Owner::create([
             'user_id' => auth()->id(),
-            'company_name' => $request->company_name,
-            'tax_id' => $request->tax_id,
+            'company_name' => $validated['company_name'],
+            'tax_id' => $validated['tax_id'],
         ]);
 
         auth()->user()->update([

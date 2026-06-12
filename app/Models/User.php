@@ -26,6 +26,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Arena::class);
     }
+
+    public function owner()
+    {
+        return $this->hasOne(Owner::class);
+    }
     use TwoFactorAuthenticatable;
 
     /**
