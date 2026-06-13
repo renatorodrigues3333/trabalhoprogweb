@@ -21,7 +21,11 @@ return new class extends Migration
             $table->text('description')
                 ->nullable();
 
-            $table->string('address', 255);
+            $table->string('address_rua', 120);
+
+            $table->string('address_bairro', 100);
+
+            $table->string('address_numero', 15);
 
             $table->string('phone', 20)
                 ->nullable();

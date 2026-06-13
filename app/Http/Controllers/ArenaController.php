@@ -55,7 +55,7 @@ class ArenaController extends Controller
         return redirect()->route('owners.dashboard');
     }
     
-    public function show(string $id)
+    public function show($id)
     {
         //
     }

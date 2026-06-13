@@ -8,7 +8,9 @@ class Arena extends Model
         'owner_id',
         'name',
         'description',
-        'address',
+        'address_rua',
+        'address_bairro',
+        'address_numero',
         'phone',
         'contact_email'
     ];

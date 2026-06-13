@@ -10,7 +10,7 @@
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Name') }}" />
+                <x-label for="name" value="{{ __('Nome') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
@@ -30,12 +30,121 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="name_arena" value="{{ __('Nome da Arena') }}" />
+                <x-input id="name_arena" class="block mt-1 w-full" type="text" name="name_arena" :value="old('name_arena')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="description" value="{{ __('Descrição') }}" />
+                <x-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')"/>
+            </div>
+
+            <div class="mt-4">
+                <x-label for="address_rua" value="{{ __('Rua') }}" />
+                <x-input id="address_rua" class="block mt-1 w-full" type="text" name="address_rua" :value="old('address_rua')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="address_bairro" value="{{ __('Bairro') }}" />
+                <x-input id="address_bairro" class="block mt-1 w-full" type="text" name="address_bairro" :value="old('address_bairro')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="address_numero" value="{{ __('Número') }}" />
+                <x-input id="address_numero" class="block mt-1 w-full" type="text" name="address_numero" :value="old('address_numero')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="phone" value="{{ __('Telafone de Contato da Arena') }}" />
+                <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="email_arena" value="{{ __('Email da sua Arena') }}" />
+                <x-input id="email_arena" class="block mt-1 w-full" type="email" name="email_arena" :value="old('email_arena')" required autocomplete="username" />
+            </div>
+
+            <h5 class="mt-4 mb-3">
+                    Infrome os Dias da Semana que Fucionara sua Arena
+            </h5>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input"
+                    type="checkbox"
+                    name="date"
+                    value="segunda_feira">
+                <label class="form-check-label">
+                    Segunda_Feira
+                </label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input"
+                    type="checkbox"
+                    name="date"
+                    value="terça_feira">
+                <label class="form-check-label">
+                    Terça_Feira
+                </label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input"
+                    type="checkbox"
+                    name="date"
+                    value="quarta_feira">
+                <label class="form-check-label">
+                    Quarta_Feira
+                </label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input"
+                    type="checkbox"
+                    name="date"
+                    value="quinta_Feira">
+                <label class="form-check-label">
+                    Quinta_Feira
+                </label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input"
+                    type="checkbox"
+                    name="date"
+                    value="sexta_feira">
+                <label class="form-check-label">
+                    Sexta_Feira
+                </label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input"
+                    type="checkbox"
+                    name="date"
+                    value="sabado">
+                <label class="form-check-label">
+                    Sabado
+                </label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input"
+                    type="checkbox"
+                    name="date"
+                    value="Domingo">
+                <label class="form-check-label">
+                    Domingo
+                </label>
+            </div>
+
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Senha') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -55,7 +164,7 @@
                 </a>
 
                 <x-button class="ms-4">
-                    {{ __('Register') }}
+                    {{ __('Casdastrar') }}
                 </x-button>
             </div>
         </form>
