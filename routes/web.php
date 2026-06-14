@@ -52,7 +52,15 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/owners/dashboard', function () {
-        return view('owners.dashboard');
+        $owner = \App\Models\Owner::where('user_id', auth()->id())->first();
+
+        $arenasCount = $owner ? $owner->arenas()->count() : 0;
+
+        $courtsCount = $owner
+            ? \App\Models\Court::whereIn('arena_id', $owner->arenas()->select('id'))->count()
+            : 0;
+
+        return view('owners.dashboard', compact('arenasCount', 'courtsCount'));
     })->name('owners.dashboard');
 });
 

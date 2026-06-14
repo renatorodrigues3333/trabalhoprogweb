@@ -64,79 +64,11 @@
                 <x-input id="email_arena" class="block mt-1 w-full" type="email" name="email_arena" :value="old('email_arena')" required autocomplete="username" />
             </div>
 
-            <h5 class="mt-4 mb-3">
-                    Infrome os Dias da Semana que Fucionara sua Arena
-            </h5>
+            @include('arenas.partials.business-hours')
 
-            <div class="form-check mb-2">
-                <input class="form-check-input"
-                    type="checkbox"
-                    name="date"
-                    value="segunda_feira">
-                <label class="form-check-label">
-                    Segunda_Feira
-                </label>
-            </div>
+            @include('arenas.partials.courts')
 
-            <div class="form-check mb-2">
-                <input class="form-check-input"
-                    type="checkbox"
-                    name="date"
-                    value="terça_feira">
-                <label class="form-check-label">
-                    Terça_Feira
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input"
-                    type="checkbox"
-                    name="date"
-                    value="quarta_feira">
-                <label class="form-check-label">
-                    Quarta_Feira
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input"
-                    type="checkbox"
-                    name="date"
-                    value="quinta_Feira">
-                <label class="form-check-label">
-                    Quinta_Feira
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input"
-                    type="checkbox"
-                    name="date"
-                    value="sexta_feira">
-                <label class="form-check-label">
-                    Sexta_Feira
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input"
-                    type="checkbox"
-                    name="date"
-                    value="sabado">
-                <label class="form-check-label">
-                    Sabado
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input"
-                    type="checkbox"
-                    name="date"
-                    value="Domingo">
-                <label class="form-check-label">
-                    Domingo
-                </label>
-            </div>
+            @include('arenas.partials.payment-methods')
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Senha') }}" />

@@ -1,0 +1,109 @@
+/*
+ * Horário de funcionamento da arena.
+ * Estilo independente de framework (serve nas páginas Bootstrap e Tailwind).
+ * Comportamento em /js/business-hours.js | markup no partial business-hours.blade.php
+ */
+
+.bh {
+    margin-top: 1.5rem;
+}
+
+.bh__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+}
+
+.bh__hint {
+    font-size: .85rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+/* Linha de um dia */
+.bh__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+    padding: .6rem .75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: .5rem;
+    margin-bottom: .5rem;
+    transition: border-color .15s ease, background-color .15s ease;
+}
+
+.bh__row.is-open {
+    border-color: #c7d2fe;
+    background-color: #f5f7ff;
+}
+
+/* Checkbox + nome do dia */
+.bh__day {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    min-width: 9.5rem;
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.bh__day input {
+    width: 1.05rem;
+    height: 1.05rem;
+    cursor: pointer;
+}
+
+/* Bloco de horários: escondido até o dia ser marcado */
+.bh__times {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem 1rem;
+}
+
+.bh__row.is-open .bh__times {
+    display: flex;
+}
+
+.bh__period {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.bh__period input[type="time"] {
+    padding: .35rem .5rem;
+    border: 1px solid #d1d5db;
+    border-radius: .375rem;
+    font-size: .9rem;
+}
+
+.bh__sep {
+    color: #6b7280;
+    font-size: .85rem;
+}
+
+.bh__period--second {
+    padding-left: .75rem;
+    border-left: 1px dashed #d1d5db;
+}
+
+.bh__period-label {
+    font-size: .75rem;
+    color: #9ca3af;
+}
+
+.bh__error {
+    margin-top: .5rem;
+    font-size: .85rem;
+    color: #dc2626;
+}
+
+@media (max-width: 575px) {
+    .bh__period--second {
+        border-left: none;
+        padding-left: 0;
+    }
+}

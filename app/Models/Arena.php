@@ -1,6 +1,5 @@
 <?php
 namespace App\Models;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 class Arena extends Model
 {
@@ -15,12 +14,23 @@ class Arena extends Model
         'contact_email'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
     public function owner()
     {
         return $this->belongsTo(Owner::class);
+    }
+
+    public function businessHours()
+    {
+        return $this->hasMany(ArenaBusinessHour::class);
+    }
+
+    public function paymentMethods()
+    {
+        return $this->belongsToMany(PaymentMethod::class, 'arena_payment_methods');
+    }
+
+    public function courts()
+    {
+        return $this->hasMany(Court::class);
     }
 }

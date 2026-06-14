@@ -1,0 +1,149 @@
+/*
+ * Quadras da arena.
+ * Estilo independente de framework (serve nas páginas Bootstrap e Tailwind).
+ * Comportamento em /js/courts.js | markup nos partials courts/court-row.
+ */
+
+.ct {
+    margin-top: 1.5rem;
+}
+
+.ct__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+}
+
+.ct__hint {
+    font-size: .85rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+/* Card de uma quadra */
+.ct__card {
+    border: 1px solid #e5e7eb;
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: .75rem;
+    background-color: #fafafa;
+}
+
+.ct__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .75rem;
+}
+
+.ct__head strong {
+    font-size: .95rem;
+    color: #374151;
+}
+
+.ct__remove {
+    border: none;
+    background: transparent;
+    color: #dc2626;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 .35rem;
+}
+
+.ct__remove:hover {
+    color: #991b1b;
+}
+
+/* Campos: nome / valor / ativa */
+.ct__fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: .75rem;
+}
+
+.ct__input {
+    padding: .4rem .6rem;
+    border: 1px solid #d1d5db;
+    border-radius: .375rem;
+    font-size: .9rem;
+}
+
+.ct__input--name {
+    flex: 1 1 12rem;
+}
+
+.ct__input--price {
+    width: 9rem;
+}
+
+.ct__textarea {
+    width: 100%;
+    margin-bottom: .75rem;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.ct__active {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Esportes */
+.ct__sports {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem .9rem;
+}
+
+.ct__sports-label {
+    font-size: .85rem;
+    color: #6b7280;
+    width: 100%;
+    margin-bottom: .15rem;
+}
+
+.ct__sport {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+/* Atalho "Multiesporte": destaca e separa dos esportes individuais */
+.ct__sport--all {
+    font-weight: 600;
+    color: #4338ca;
+    padding-right: .9rem;
+    margin-right: .3rem;
+    border-right: 1px solid #d1d5db;
+}
+
+/* Botão adicionar */
+.ct__add {
+    border: 1px dashed #818cf8;
+    background-color: #f5f7ff;
+    color: #4338ca;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.ct__add:hover {
+    background-color: #eef2ff;
+}
+
+.ct__error {
+    margin-top: .5rem;
+    font-size: .85rem;
+    color: #dc2626;
+}

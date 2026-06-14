@@ -24,7 +24,8 @@ class User extends Authenticatable
 
     public function arenas()
     {
-        return $this->hasMany(Arena::class);
+        // arenas não tem user_id; o vínculo é User -> Owner -> Arenas.
+        return $this->hasManyThrough(Arena::class, Owner::class);
     }
 
     public function owner()

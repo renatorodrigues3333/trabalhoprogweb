@@ -46,14 +46,15 @@
 
                     <div class="card-body">
 
-                        <h4>{{ $arena->nome }}</h4>
+                        <h4>{{ $arena->name }}</h4>
 
                         <p class="text-muted">
-                            {{ $arena->endereco }}
+                            {{ $arena->address_rua }}, {{ $arena->address_numero }}
+                            - {{ $arena->address_bairro }}
                         </p>
 
                         <p>
-                            {{ $arena->descricao }}
+                            {{ $arena->description }}
                         </p>
 
                     </div>

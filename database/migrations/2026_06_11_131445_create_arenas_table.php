@@ -16,7 +16,8 @@ return new class extends Migration
                 ->constrained('owners')
                 ->restrictOnDelete();
 
-            $table->string('name', 120);
+            $table->string('name', 120)
+                ->unique();
 
             $table->text('description')
                 ->nullable();
@@ -31,9 +32,6 @@ return new class extends Migration
                 ->nullable();
 
             $table->string('contact_email', 150)
-                ->nullable();
-
-            $table->timestamp('business_hours')
                 ->nullable();
 
             $table->boolean('active')

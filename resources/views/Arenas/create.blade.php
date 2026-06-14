@@ -32,10 +32,33 @@
                 <div class="mb-3">
                     <input
                         type="text"
-                        name="endereco"
+                        name="rua"
                         class="form-control"
-                        placeholder="Endereço Completo"
+                        placeholder="Rua"
+                        value="{{ old('rua') }}"
                         required>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <input
+                            type="text"
+                            name="bairro"
+                            class="form-control"
+                            placeholder="Bairro"
+                            value="{{ old('bairro') }}"
+                            required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <input
+                            type="text"
+                            name="numero"
+                            class="form-control"
+                            placeholder="Número"
+                            value="{{ old('numero') }}"
+                            required>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -56,39 +79,11 @@
                     </div>
                 </div>
 
-                <h5 class="mt-4 mb-3">
-                    Formas de Pagamento Aceitas
-                </h5>
+                @include('arenas.partials.business-hours')
 
-                <div class="form-check mb-2">
-                    <input class="form-check-input"
-                           type="checkbox"
-                           name="pagamentos[]"
-                           value="pix">
-                    <label class="form-check-label">
-                        PIX
-                    </label>
-                </div>
+                @include('arenas.partials.courts')
 
-                <div class="form-check mb-2">
-                    <input class="form-check-input"
-                           type="checkbox"
-                           name="pagamentos[]"
-                           value="credito">
-                    <label class="form-check-label">
-                        Cartão de Crédito
-                    </label>
-                </div>
-
-                <div class="form-check mb-4">
-                    <input class="form-check-input"
-                           type="checkbox"
-                           name="pagamentos[]"
-                           value="debito">
-                    <label class="form-check-label">
-                        Cartão de Débito
-                    </label>
-                </div>
+                @include('arenas.partials.payment-methods')
 
                 <div class="d-flex justify-content-end gap-2">
                     <a href="{{ route('arenas.index') }}"

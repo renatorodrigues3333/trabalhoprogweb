@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('tax_id', 20)
                 ->unique();
 
-            $table->string('company_name', 150);
+            $table->string('company_name', 150)
+                ->unique();
 
             $table->timestamp('created_at')
                 ->useCurrent();

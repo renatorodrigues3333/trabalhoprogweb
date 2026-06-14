@@ -57,7 +57,7 @@
 
                     <h5>{{ $arena->name }}</h5>
 
-                    <p>{{ $arena->address }}</p>
+                    <p>{{ $arena->address_rua }}, {{ $arena->address_numero }} - {{ $arena->address_bairro }}</p>
 
                     <a href="{{ route('arenas.edit', $arena->id) }}" class="btn btn-outline-primary">
                         Gerenciar

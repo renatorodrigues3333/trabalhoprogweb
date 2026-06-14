@@ -13,10 +13,12 @@ return new class extends Migration
 
             $table->enum('type', [
                 'pix',
-                'cash',
-                'credit_card',
-                'debit_card'
+                'card',
+                'cash'
             ])->unique();
+
+            // Texto exibido no formulário (ex.: "PIX", "Cartão", "Dinheiro")
+            $table->string('label', 40);
 
             $table->boolean('active')->default(true);
         });
